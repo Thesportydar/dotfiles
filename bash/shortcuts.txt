@@ -1,0 +1,7 @@
+Copiar últimas 10 líneas del scrollback | kitty @ get-text --extent=last-10-lines | xclip -selection clipboard
+Copiar última línea del historial | fc -ln -1 | xclip -selection clipboard
+open vpn conicet | sudo -v && cd /home/inaqui/conicet/ipaladino/ && bw get password "VPN - Conicet" | sudo openfortivpn ratofw.conicet.gov.ar:10443 --username=ipaladino --user-cert=clientcert.pem --user-key=clientkey.pem --ca-file=cacert.pem
+connect ftp | lftp -u ipaladinoftp,$(bw get password "FTP CONICET") -e "set ssl:verify-certificate no" ftp-dev-01.conicet.gov.ar:2022
+connect vpn isistan | sudo wg-quick up Paladino
+disconnect vpn isistan | sudo wg-quick down Paladino
+bw unlock|export BW_SESSION=$(bw unlock --raw)
