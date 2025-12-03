@@ -3,8 +3,9 @@ local options = {
     lua = { "stylua" },
     sql = { "sql_formatter" },
     json = { "jq" },
-    -- css = { "prettier" },
-    -- html = { "prettier" },
+    astro = { "prettier" },
+    css = { "prettier" },
+    html = { "prettier" },
   },
   formatters = {
     sql_formatter = {

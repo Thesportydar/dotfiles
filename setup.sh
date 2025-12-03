@@ -8,7 +8,7 @@ DOTFILES_DIR="$HOME_DIR/dotfiles"
 FILES=(
   "bash/.bashrc:$HOME_DIR/.bashrc"
   "bash/.bash_aliases:$HOME_DIR/.bash_aliases"
-  "bash/.gh_copilot_alias:$HOME_DIR/.gh_copilot_alias"
+  "bash/shortcuts.txt:$HOME_DIR/.snippets/shortcuts.txt"
   "kitty/kitty.conf:$HOME_DIR/.config/kitty/kitty.conf"
   "kitty/GruvBox_DarkHard.conf:$HOME_DIR/.config/kitty/GruvBox_DarkHard.conf"
   "kitty/TokyoNight.conf:$HOME_DIR/.config/kitty/TokyoNight.conf"

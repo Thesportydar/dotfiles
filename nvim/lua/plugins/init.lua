@@ -14,20 +14,20 @@ return {
   },
 
   {
-  	"nvim-treesitter/nvim-treesitter",
-  	opts = {
-  		ensure_installed = {
-  			"vimdoc", "c", "lua", "vim", "vimdoc", "cpp",
+    "nvim-treesitter/nvim-treesitter",
+    opts = {
+      ensure_installed = {
+        "c", "lua", "vim", "vimdoc", "cpp",
         "java", "typescript", "javascript", "python",
-        "html", "css", "json", "yaml", "astro", "bash"
-  		},
-  	},
+        "html", "css", "json", "yaml", "astro", "bash",
+      },
+    },
   },
 
   {
     'zbirenbaum/copilot.lua',
     event = "InsertEnter",
-    config = function ()
+    config = function()
       require("copilot").setup({
         suggestion = {
           auto_trigger = true,
@@ -38,7 +38,27 @@ return {
             dismiss = "<C-]>",
           },
         },
+        filetypes = {
+          markdown = true,
+        },
       })
-    end
+    end,
   },
+
+  {
+    'tpope/vim-fugitive',
+    event = "VeryLazy"
+  }
+  -- test new blink
+  -- { import = "nvchad.blink.lazyspec" },
+
+  -- {
+  -- 	"nvim-treesitter/nvim-treesitter",
+  -- 	opts = {
+  -- 		ensure_installed = {
+  -- 			"vim", "lua", "vimdoc",
+  --      "html", "css"
+  -- 		},
+  -- 	},
+  -- },
 }
