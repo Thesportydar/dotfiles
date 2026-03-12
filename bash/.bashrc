@@ -102,10 +102,6 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-if [ -f ~/.gh_copilot_alias ]; then
-    . ~/.gh_copilot_alias
-fi
-
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
@@ -132,7 +128,7 @@ bind 'set show-all-if-ambiguous on'
 bind 'TAB:menu-complete'
 bind '"\e[Z":menu-complete-backward'
 
-neofetch
+fastfetch
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
@@ -181,3 +177,19 @@ export NVM_DIR="$HOME/.nvm"
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init - bash)"
+
+
+function /ai() {
+  local prompt="$*"
+
+  if [[ -z "$prompt" ]]; then
+    echo "uso: ai <lo-que-queres-hacer>"
+    return 1
+  fi
+
+  llm prompt -m gemini-flash-latest --no-stream \
+    -s "Convertí la intención del usuario en UN (1) comando de shell para debian + bash.
+Devolvé únicamente el comando, sin backticks, sin markdown, sin explicación.
+Si la intención es ambigua o peligrosa, devolvé un comando inofensivo que muestre ayuda (por ejemplo: 'echo ...')." \
+    "$prompt" | tr -d '\r'
+}

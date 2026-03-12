@@ -3,4 +3,4 @@ alias ...='cd ../..'
 alias gs='git status'
 alias ll='ls -lah --color=auto'
 alias update='sudo apt update && sudo apt upgrade'
-
+alias glog='git log --oneline --graph --decorate'
